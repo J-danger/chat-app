@@ -6,12 +6,12 @@ export const CTX = React.createContext();
 
 
 const initState = {
-    general: [
+    General: [
         // {from: 'myself', msg: 'hello world'},
         // {from: 'myself', msg: 'hello world'},
         // {from: 'myself', msg: 'hello world'},
     ],
-    topic2: [
+    Members: [
         // {from: 'myself1', msg: 'hello world'},
         // {from: 'myself1', msg: 'hello world'},
         // {from: 'myself1', msg: 'hello world'},
@@ -52,7 +52,7 @@ export default function Store(props){
         })
     }
 
-    const user = 'Steve' + Math.random(100).toFixed(2)
+    const user = 'Anonymous' 
 
  
 
