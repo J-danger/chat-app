@@ -1,6 +1,8 @@
 import React from 'react'
 var io = require('socket.io-client');
 
+//https://www.youtube.com/watch?v=hiiaHyhhwBU&t=1917s
+
 
 export const CTX = React.createContext();
 
@@ -36,6 +38,7 @@ function reducer(state, action){
 
 export function sendChatAction(value){
     socket.emit('chat message', value);
+    
 }
 
 let socket;
@@ -50,6 +53,7 @@ export default function Store(props){
         socket.on('chat message', function(msg){
             dispatch({type:'RECEIVE MESSAGE', payload: msg});
         })
+        
     }
 
     const user = 'Anonymous' 

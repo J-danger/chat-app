@@ -11,8 +11,17 @@ io.on('connection', function(socket){
     socket.on('chat message', function(msg){
         console.log('message: ' + JSON.stringify(msg));
         io.emit('chat message', msg);
-    })
+        // io.emit('nickname', nickname)
+    });  
+    // socket.on('send-nickname', function(nickname) {
+    //     socket.nickname = nickname;
+    //     users.push(socket.nickname);
+    //     console.log(users);
+    // });
 });
+
+
+  
 
 http.listen(3001, function(){
     console.log('listening on *:3001');
