@@ -1,21 +1,9 @@
 const express = require('express');
-var app = require('express')();
+var app = express()
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
-const PORT = process.env.PORT || 5001;
-require("dotenv").config()
-
-// Define middleware here
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+const PORT = process.env.port || 5001
 
 app.get('/', function(req, res){
     res.send('<h1>hello world</h1>');
@@ -37,6 +25,6 @@ io.on('connection', function(socket){
 
 
 http.listen(PORT, function(){
-    console.log('listening on *:5001');
+    console.log(`listening on ${PORT} `);
 });
 
