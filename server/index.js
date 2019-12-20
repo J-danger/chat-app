@@ -3,7 +3,7 @@ var app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5001;
 require("dotenv").config()
 
 // Define middleware here
@@ -36,9 +36,7 @@ io.on('connection', function(socket){
 });
 
 
-  
-
 http.listen(PORT, function(){
-    console.log('listening on *:3001');
+    console.log('listening on *:5001');
 });
 
