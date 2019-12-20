@@ -1,6 +1,15 @@
 var app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
+const PORT = process.env.PORT || 3001;
+
+// Define middleware here
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
 
 app.get('/', function(req, res){
     res.send('<h1>hello world</h1>');
@@ -23,7 +32,7 @@ io.on('connection', function(socket){
 
   
 
-http.listen(3001, function(){
+http.listen(PORT, function(){
     console.log('listening on *:3001');
 });
 
