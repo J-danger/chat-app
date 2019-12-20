@@ -3,7 +3,7 @@ var app = express()
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
-const PORT = process.env.port || 8080
+const PORT = process.env.port || 5001
 
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === 'production') {
     app.get('*', (request, response) => {
       response.sendFile(path.join(__dirname, 'client/build', 'index.html'))
     })
+}
 
 app.get('/', function(req, res){
     res.send('<h1>hello world</h1>');

@@ -36,7 +36,7 @@ function reducer(state, action){
 
 export function sendChatAction(value){
     socket.emit('chat message', value);
-    
+    // console.log(value)
 }
 
 let socket;
@@ -54,7 +54,7 @@ export default function Store(props){
         
     }
 
-    const user = 'Anonymous' 
+    const user = "ayy lmao"
 
  
 
