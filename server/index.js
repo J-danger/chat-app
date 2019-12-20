@@ -1,15 +1,16 @@
+const express = require('express');
 var app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
+const bodyParser = require('body-parser');
+const pino = require('express-pino-logger')();
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
-
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-  }
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(pino);
 
 app.get('/', function(req, res){
     res.send('<h1>hello world</h1>');
